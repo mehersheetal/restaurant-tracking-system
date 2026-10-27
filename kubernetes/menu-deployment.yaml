@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: menu-service
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: menu-service
+
+  template:
+    metadata:
+      labels:
+        app: menu-service
+
+    spec:
+      containers:
+      - name: menu-service
+        image: 220588/menu-service:latest
+
+        env:
+        - name: MONGO_URI
+          value: mongodb://mongodb:27017/restaurantdb
+
+        ports:
+        - containerPort: 3000

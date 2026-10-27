@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#home" onclick="showSection('homeView')">Table &amp; Spoon</a>
+        <nav aria-label="Main navigation">
+            <button class="nav-button active" type="button" data-view="homeView" onclick="showSection('homeView')">Home</button>
+            <button class="nav-button" type="button" data-view="menuView" onclick="showSection('menuView')">Menu</button>
+            <button class="nav-button" type="button" data-view="ordersView" onclick="showSection('ordersView')">Orders</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="homeView" class="hero" aria-labelledby="homeTitle">
+            <div class="hero-copy">
+                <p class="eyebrow">Fresh from our kitchen</p>
+                <h1 id="homeTitle">Good food, made to share.</h1>
+                <p class="hero-description">Find a new favorite and place your order in just a few clicks.</p>
+                <button class="primary-button" type="button" onclick="showSection('menuView')">Explore the menu</button>
+            </div>
+            <img class="hero-image" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Freshly baked pizza topped with basil">
+        </section>
+
+        <section id="menuView" class="page-section" aria-labelledby="menuTitle" hidden>
+            <div class="section-heading">
+                <p class="eyebrow">Made fresh for you</p>
+                <h1 id="menuTitle">Our menu</h1>
+                <p>Choose a dish to add it to your order.</p>
+            </div>
+
+            <div class="menu-container">
+                <button class="card" type="button" onclick="orderFood('Pizza')">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pizza topped with basil" loading="lazy">
+                    <span class="card-details"><span class="food-name">Pizza</span><span class="food-price">Kr130</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Burger')">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Grilled burger with fresh toppings" loading="lazy">
+                    <span class="card-details"><span class="food-name">Burger</span><span class="food-price">Kr40</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Pasta')">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pasta with tomato sauce" loading="lazy">
+                    <span class="card-details"><span class="food-name">Pasta</span><span class="food-price">Kr99</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Sandwich')">
+                    <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Fresh sandwich with greens" loading="lazy">
+                    <span class="card-details"><span class="food-name">Sandwich</span><span class="food-price">Kr89</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('French Fries')">
+                    <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Crispy French fries" loading="lazy">
+                    <span class="card-details"><span class="food-name">French Fries</span><span class="food-price">Kr50</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Taco')">
+                    <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Taco with fresh fillings" loading="lazy">
+                    <span class="card-details"><span class="food-name">Taco</span><span class="food-price">Kr99</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Chicken')">
+                    <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Roast chicken with herbs" loading="lazy">
+                    <span class="card-details"><span class="food-name">Chicken</span><span class="food-price">Kr149</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Salad')">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Colorful fresh salad" loading="lazy">
+                    <span class="card-details"><span class="food-name">Salad</span><span class="food-price">Kr59</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Ice Cream')">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Scoops of ice cream" loading="lazy">
+                    <span class="card-details"><span class="food-name">Ice Cream</span><span class="food-price">Kr55</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Coffee')">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Freshly brewed coffee" loading="lazy">
+                    <span class="card-details"><span class="food-name">Coffee</span><span class="food-price">Kr30</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Milkshake')">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Cold milkshake" loading="lazy">
+                    <span class="card-details"><span class="food-name">Milkshake</span><span class="food-price">Kr39</span></span>
+                </button>
+                <button class="card" type="button" onclick="orderFood('Donut')">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Glazed donut" loading="lazy">
+                    <span class="card-details"><span class="food-name">Donut</span><span class="food-price">Kr10</span></span>
+                </button>
+            </div>
+
+            <form class="order-form" onsubmit="createOrder(event)">
+                <h2>Place an order</h2>
+                <label for="customerName">Your name</label>
+                <input id="customerName" name="customerName" placeholder="Enter your name" required>
+                <label for="itemName">Selected item</label>
+                <input id="itemName" name="itemName" placeholder="Choose a menu item" readonly required>
+                <label for="quantity">Quantity</label>
+                <input id="quantity" name="quantity" type="number" min="1" value="1" required>
+                <button class="primary-button" type="submit">Place order</button>
+                <p id="orderMessage" class="form-message" role="status"></p>
+            </form>
+        </section>
+
+        <section id="ordersView" class="page-section" aria-labelledby="ordersTitle" hidden>
+            <div class="section-heading">
+                <p class="eyebrow">Your activity</p>
+                <h1 id="ordersTitle">Your orders</h1>
+                <button class="primary-button" type="button" onclick="loadOrders()">Refresh orders</button>
+            </div>
+            <p id="ordersMessage" class="form-message" role="status"></p>
+            <div id="orderList" class="orders-list"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
